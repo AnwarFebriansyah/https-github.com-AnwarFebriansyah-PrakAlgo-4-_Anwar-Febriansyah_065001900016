@@ -1,0 +1,45 @@
+from typing import BinaryIO
+
+
+while True:
+    print("---PROGRAM KONVERSI BILANGAN")
+    print("1. Desimal ke Biner")
+    print("2. Biner ke Desimal")
+    print("3. Exit")
+    menu = input("Silahkan pilih menu : ")
+    try:
+        menu = int(menu)
+    except:
+        print("Menu error, ulangi")
+        continue
+    if menu == 1 :
+        biner = list()
+        desimal = input("Masukan bilangan desimal : ")
+        try:
+            desimal = int(desimal)
+        except:
+            print("Desimal error, ulangi")
+            continue
+        while desimal>0:
+            biner.append(desimal%2)
+            desimal=int(desimal/2)
+        print("Nilai biner : ",*list(reversed(biner)))
+    elif menu == 2:
+        biner = input("Masukan bilangan biner : ")
+        try:
+            biner = int(biner)
+        except:
+            print("Biner error, ulangi")
+            continue
+        desimal = 0 
+        base = 1
+        while biner>0:
+            sisa = biner%10
+            desimal+=(sisa*base)
+            biner=int(biner/10)
+            base*=2
+        print("Nilai desimal : ",desimal)
+    elif menu == 3:
+        exit("Program selesai")
+    else:
+        print("Menu salah, ulangi")
